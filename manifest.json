@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "WebExtGenerator",
+  "version": "0.1",
+
+  "description": "A WebExtension which generates other WebExtensions, completely UI-based open source tool.",
+
+  "icons": {
+    "48": "icons/WEG-48.png"
+  },
+
+  "sidebar_action": {
+  "default_title": "Create new WebExtension",
+  "default_panel": "sidebar.html",
+  "default_icon": "sidebar_icon.png"
+  }
+
+}
+
