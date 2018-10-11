@@ -32,7 +32,7 @@
     console.log("Description : " + extdescription);
 
     var dummy = document.getElementById('extversion').value;
-     if(dummy != "") {
+     if(dummy != NULL) {
        extversion = dummy;
     }
     console.log("Version : " + extversion);
