@@ -1,162 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>WebExt Generator</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-     <script src="dist/jszip.js"></script> 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>WebExt Generator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="dist/jszip.js"></script>
 
-  <body>
-    
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Name</span>
-        </div>
-        <input type="text" class="form-control" id="extname" required>
-      </div>
+</head>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="desc">Description</span>
-        </div>
-        <input type="text" class="form-control" id="extdescription" required>
-      </div>
+<body>
+  <nav class="navbar cus-nav navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"> Web Extension Generator</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Version</span>
-        </div>
-        <input type="number" step="0.1" class="form-control" id="extversion" required>
-      </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item  nav-cus-item active">
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Short Name</span>
-        </div>
-        <input type="text" class="form-control" maxlength="12" id="ShortName">
-      </div>
+          <a target="_blank" rel="noopener noreferrer" class="nav-link" href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/What_are_WebExtensions">
+            <button class="btn btn-sm ">Learn</button>
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item nav-cus-item active">
+          <button id="" class="btn cus-btn btn-sm btn-primary ">
+            <a target="_blank" rel="noopener noreferrer" class="nav-link" href="#">Generate<span class="sr-only">(current)</span></a>
+          </button>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Version Name</span>
-        </div>
-        <input type="text" class="form-control" maxlength="10" id="VersionName">
-      </div>
+        </li>
+        <li class="nav-item nav-cus-item active">
+          <a target="_blank" rel="noopener noreferrer" class="nav-link" href="https://thimble.mozilla.org/">
+            <button class="btn btn-sm ">
+              Customize
+            </button>
+            <span class="sr-only">(current)</span></a>
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Homepage URL</span>
-        </div>
-        <input type="URL" class="form-control" id="HomepageURL">
-      </div>
+        </li>
+        <li class="nav-item nav-cus-item active">
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Developer Name</span>
-        </div>
-        <input type="text" class="form-control" id="DevName">
-      </div>
+          <a class="nav-link" id="testBtn">
+            <button class="btn btn-sm  ">Test and Debug</button><span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item  nav-cus-item active">
 
-      <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Developer URL</span>
-        </div>
-        <input type="URL" class="form-control" id="DevURL">
-      </div>
+          <a target="_blank" rel="noopener noreferrer" class="nav-link" href="https://addons.mozilla.org/en-GB/developers/">
+            <button class="btn btn-sm ">Submit</button>
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-      <br>
-      <h6>Where is it located ?</h6>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-light">
-          <input type="radio" name="position" id="page" class="sinsel" required>Address bar
-        </label>
-        <label class="btn btn-light">
-          <input type="radio" name="position" id="browser" class="sinsel">Toolbar
-        </label>
-        <label class="btn btn-light">
-          <input type="radio" name="position" id="sidebar" class="sinsel">Sidebar
-        </label>
-      </div>
 
-      <br><br>
-      <h6>Anything else you want to add ?</h6>
-      <div class="btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-light">
-          <input type="checkbox" id="bgscript" autocomplete="off"> Background Script
-        </label>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Name</span>
+    </div>
+    <input type="text" class="form-control" id="extname" required>
+  </div>
 
-        <label class="btn btn-light">
-          <input type="checkbox" id="conscript" autocomplete="off"> Content Script
-        </label>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="desc">Description</span>
+    </div>
+    <input type="text" class="form-control" id="extdescription" required>
+  </div>
 
-        <label class="btn btn-light">
-          <input type="checkbox" id="OptionsPage" autocomplete="off"> Options Page
-        </label>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Version</span>
+    </div>
+    <input type="number" step="0.1" class="form-control" id="extversion" required>
+  </div>
 
-        <label class="btn btn-light">
-          <input type="checkbox" id="AddrBarSug" autocomplete="off"> Address Bar Suggestion
-        </label>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Short Name</span>
+    </div>
+    <input type="text" class="form-control" maxlength="12" id="ShortName">
+  </div>
 
-        <label class="btn btn-light">
-          <input type="checkbox" id="DevTools" autocomplete="off"> Dev Tools Panel
-        </label>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Version Name</span>
+    </div>
+    <input type="text" class="form-control" maxlength="10" id="VersionName">
+  </div>
 
-      </div>
-    
-      <div class="perm">
-        <h6>Permissions </h6>
-        <input type="checkbox" name="check" id="activeTab"><label class="checkbox" for="activeTab">activeTab</label>
-        <input type="checkbox" name="check" id="alarms"><label class="checkbox" for="alarms">alarms</label>
-        <input type="checkbox" name="check" id="background"><label class="checkbox" for="background">background</label>
-        <input type="checkbox" name="check" id="bookmarks"><label class="checkbox" for="bookmarks">bookmarks</label>
-        <input type="checkbox" name="check" id="browserSettings"><label class="checkbox" for="browserSettings">browserSettings</label>
-        <input type="checkbox" name="check" id="browsingData"><label class="checkbox" for="browsingData">browsingData</label>
-        <input type="checkbox" name="check" id="contentSettings"><label class="checkbox" for="contentSettings">contentSettings</label>
-        <input type="checkbox" name="check" id="contextMenus"><label class="checkbox" for="contextMenus">contextMenus</label>
-        <input type="checkbox" name="check" id="contextualIdentities"><label class="checkbox" for="contextualIdentities">contextualIdentities</label>
-        <input type="checkbox" name="check" id="cookies"><label class="checkbox" for="cookies">cookies</label>
-        <input type="checkbox" name="check" id="debugger"><label class="checkbox" for="debugger">debugger</label>
-        <input type="checkbox" name="check" id="dns"><label class="checkbox" for="dns">dns</label>
-        <input type="checkbox" name="check" id="downloads"><label class="checkbox" for="downloads">downloads</label>
-        <input type="checkbox" name="check" id="downloads.open"><label class="checkbox" for="downloads.open">downloads.open</label>
-        <input type="checkbox" name="check" id="find"><label class="checkbox" for="find">find</label>
-        <input type="checkbox" name="check" id="geolocation"><label class="checkbox" for="geolocation">geolocation</label>
-        <input type="checkbox" name="check" id="history"><label class="checkbox" for="history">history</label>
-        <input type="checkbox" name="check" id="identity"><label class="checkbox" for="identity">identity</label>
-        <input type="checkbox" name="check" id="idle"><label class="checkbox" for="idle">idle</label>
-        <input type="checkbox" name="check" id="management"><label class="checkbox" for="management">management</label>
-        <input type="checkbox" name="check" id="menus"><label class="checkbox" for="menus">menus</label>
-        <input type="checkbox" name="check" id="nativeMessaging"><label class="checkbox" for="nativeMessaging">nativeMessaging</label>
-        <input type="checkbox" name="check" id="notifications"><label class="checkbox" for="notifications">notifications</label>
-        <input type="checkbox" name="check" id="pageCapture"><label class="checkbox" for="pageCapture">pageCapture</label>
-        <input type="checkbox" name="check" id="pkcs11"><label class="checkbox" for="pkcs11">pkcs11</label>
-        <input type="checkbox" name="check" id="privacy"><label class="checkbox" for="privacy">privacy</label>
-        <input type="checkbox" name="check" id="proxy"><label class="checkbox" for="proxy">proxy</label>
-        <input type="checkbox" name="check" id="search"><label class="checkbox" for="search">search</label>
-        <input type="checkbox" name="check" id="sessions"><label class="checkbox" for="sessions">sessions</label>
-        <input type="checkbox" name="check" id="storage"><label class="checkbox" for="storage">storage</label>
-        <input type="checkbox" name="check" id="tabHide"><label class="checkbox" for="tabHide">tabHide</label>
-        <input type="checkbox" name="check" id="tabs"><label class="checkbox" for="tabs">tabs</label>
-        <input type="checkbox" name="check" id="theme"><label class="checkbox" for="theme">theme</label>
-        <input type="checkbox" name="check" id="topSites"><label class="checkbox" for="topSites">topSites</label>
-        <input type="checkbox" name="check" id="webNavigation"><label class="checkbox" for="webNavigation">webNavigation</label>
-        <input type="checkbox" name="check" id="webRequest"><label class="checkbox" for="webRequest">webRequest</label>
-        <input type="checkbox" name="check" id="webRequestBlocking"><label class="checkbox" for="webRequestBlocking">webRequestBlocking</label>
-      </div>
-      
-      <br><br>
-      
-    <button type="button" id="submit">Submit</button>
-    
-    <script src="jszip.min.js"></script>
-    <script src="gen.js"></script>
-  </body>
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Homepage URL</span>
+    </div>
+    <input type="URL" class="form-control" id="HomepageURL">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Developer Name</span>
+    </div>
+    <input type="text" class="form-control" id="DevName">
+  </div>
+
+  <div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text">Developer URL</span>
+    </div>
+    <input type="URL" class="form-control" id="DevURL">
+  </div>
+
+  <br>
+  <h6>Where is it located ?</h6>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-light">
+      <input type="radio" name="position" id="page" class="sinsel" required>Address bar
+    </label>
+    <label class="btn btn-light">
+      <input type="radio" name="position" id="browser" class="sinsel">Toolbar
+    </label>
+    <label class="btn btn-light">
+      <input type="radio" name="position" id="sidebar" class="sinsel">Sidebar
+    </label>
+  </div>
+
+  <br><br>
+  <h6>Anything else you want to add ?</h6>
+  <div class="btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-light">
+      <input type="checkbox" id="bgscript" autocomplete="off"> Background Script
+    </label>
+
+    <label class="btn btn-light">
+      <input type="checkbox" id="conscript" autocomplete="off"> Content Script
+    </label>
+
+    <label class="btn btn-light">
+      <input type="checkbox" id="OptionsPage" autocomplete="off"> Options Page
+    </label>
+
+    <label class="btn btn-light">
+      <input type="checkbox" id="AddrBarSug" autocomplete="off"> Address Bar Suggestion
+    </label>
+
+    <label class="btn btn-light">
+      <input type="checkbox" id="DevTools" autocomplete="off"> Dev Tools Panel
+    </label>
+
+  </div>
+
+  <div class="perm">
+    <h6>Permissions </h6>
+    <input type="checkbox" name="check" id="activeTab"><label class="checkbox" for="activeTab">activeTab</label>
+    <input type="checkbox" name="check" id="alarms"><label class="checkbox" for="alarms">alarms</label>
+    <input type="checkbox" name="check" id="background"><label class="checkbox" for="background">background</label>
+    <input type="checkbox" name="check" id="bookmarks"><label class="checkbox" for="bookmarks">bookmarks</label>
+    <input type="checkbox" name="check" id="browserSettings"><label class="checkbox" for="browserSettings">browserSettings</label>
+    <input type="checkbox" name="check" id="browsingData"><label class="checkbox" for="browsingData">browsingData</label>
+    <input type="checkbox" name="check" id="contentSettings"><label class="checkbox" for="contentSettings">contentSettings</label>
+    <input type="checkbox" name="check" id="contextMenus"><label class="checkbox" for="contextMenus">contextMenus</label>
+    <input type="checkbox" name="check" id="contextualIdentities"><label class="checkbox" for="contextualIdentities">contextualIdentities</label>
+    <input type="checkbox" name="check" id="cookies"><label class="checkbox" for="cookies">cookies</label>
+    <input type="checkbox" name="check" id="debugger"><label class="checkbox" for="debugger">debugger</label>
+    <input type="checkbox" name="check" id="dns"><label class="checkbox" for="dns">dns</label>
+    <input type="checkbox" name="check" id="downloads"><label class="checkbox" for="downloads">downloads</label>
+    <input type="checkbox" name="check" id="downloads.open"><label class="checkbox" for="downloads.open">downloads.open</label>
+    <input type="checkbox" name="check" id="find"><label class="checkbox" for="find">find</label>
+    <input type="checkbox" name="check" id="geolocation"><label class="checkbox" for="geolocation">geolocation</label>
+    <input type="checkbox" name="check" id="history"><label class="checkbox" for="history">history</label>
+    <input type="checkbox" name="check" id="identity"><label class="checkbox" for="identity">identity</label>
+    <input type="checkbox" name="check" id="idle"><label class="checkbox" for="idle">idle</label>
+    <input type="checkbox" name="check" id="management"><label class="checkbox" for="management">management</label>
+    <input type="checkbox" name="check" id="menus"><label class="checkbox" for="menus">menus</label>
+    <input type="checkbox" name="check" id="nativeMessaging"><label class="checkbox" for="nativeMessaging">nativeMessaging</label>
+    <input type="checkbox" name="check" id="notifications"><label class="checkbox" for="notifications">notifications</label>
+    <input type="checkbox" name="check" id="pageCapture"><label class="checkbox" for="pageCapture">pageCapture</label>
+    <input type="checkbox" name="check" id="pkcs11"><label class="checkbox" for="pkcs11">pkcs11</label>
+    <input type="checkbox" name="check" id="privacy"><label class="checkbox" for="privacy">privacy</label>
+    <input type="checkbox" name="check" id="proxy"><label class="checkbox" for="proxy">proxy</label>
+    <input type="checkbox" name="check" id="search"><label class="checkbox" for="search">search</label>
+    <input type="checkbox" name="check" id="sessions"><label class="checkbox" for="sessions">sessions</label>
+    <input type="checkbox" name="check" id="storage"><label class="checkbox" for="storage">storage</label>
+    <input type="checkbox" name="check" id="tabHide"><label class="checkbox" for="tabHide">tabHide</label>
+    <input type="checkbox" name="check" id="tabs"><label class="checkbox" for="tabs">tabs</label>
+    <input type="checkbox" name="check" id="theme"><label class="checkbox" for="theme">theme</label>
+    <input type="checkbox" name="check" id="topSites"><label class="checkbox" for="topSites">topSites</label>
+    <input type="checkbox" name="check" id="webNavigation"><label class="checkbox" for="webNavigation">webNavigation</label>
+    <input type="checkbox" name="check" id="webRequest"><label class="checkbox" for="webRequest">webRequest</label>
+    <input type="checkbox" name="check" id="webRequestBlocking"><label class="checkbox" for="webRequestBlocking">webRequestBlocking</label>
+  </div>
+
+  <br><br>
+
+  <button type="button" id="submit">Submit</button>
+
+  <script src="jszip.min.js"></script>
+  <script src="gen.js"></script>
+</body>
+
 </html>

@@ -8,12 +8,17 @@ html, body {
 body {
   height: 90%;
   font: caption;
+  padding: 15px;
+  padding-top: 0;
   color: white;
   background: linear-gradient(to bottom right, #480048, #C04848);
 }
 
 .content {
   margin:auto;
+}
+.cus-nav {
+  margin-bottom: 20px;
 }
 
 h4, label {
@@ -24,7 +29,11 @@ h3 {
   text-align: center;
   color: white;
 }
+.btn-primary {
+  color: #ffffff;
+  background-color: #0060df;
 
+}
 #error {
   color: white;
   text-align: center;
@@ -54,6 +63,10 @@ h3 {
  padding: 7px 10px;
 }
 
+.nav-cus-item{
+  margin-left: 15px;
+  margin-right: 15px;
+}
 .checkbox {
 	display: inline-block;
 	cursor: pointer;
