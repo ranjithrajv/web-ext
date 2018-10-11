@@ -1,15 +1,23 @@
   document.getElementById('page2').style.display = 'none';
 
   // Assigning default Values for the Variables
-  var extname, extversion, extdescription;
+  var extname="Example", extversion="0.1", extdescription="Example Description";
 
   //Creation of required Objects.
   var data = new Object();
 
-  document.getElementById("next").addEventListener("click", function(){
 
+  document.getElementById("submit").addEventListener("click", function(){
+    
     var dummy = new Object();
+    var dummy2 = new Object();
+    var dummy3 = new Object();
+    var dummy4 = new Object();
+    var dummy5 = new Object();
+    var dummy6 = new Object();
+    var dummy7 = new Object();
 
+    
     // Assigning user entered for the Variables
     var dummy = document.getElementById('extname').value;
     if(dummy != "") {
@@ -54,13 +62,7 @@
       };
     }
 
-    var dummy2 = new Object();
-    var dummy3 = new Object();
-    var dummy4 = new Object();
-    var dummy5 = new Object();
-    var dummy6 = new Object();
-    var dummy7 = new Object();
-
+    
     if(document.getElementById("page").checked) {
         console.log("Entered the Page Action sequence");
 
@@ -76,10 +78,7 @@
 
         console.log(data.page_action);
 
-        document.getElementById('page1').style.display = 'none';
-        document.getElementById('page2').style.display = 'block';
-
-
+        
     } else if(document.getElementById("browser").checked) {
       console.log("Entered the Browser Action sequence");
 
@@ -94,9 +93,7 @@
 
       console.log(data.broser_action);
 
-      document.getElementById('page1').style.display = 'none';
-      document.getElementById('page2').style.display = 'initial';
-
+      
     } else if(document.getElementById("sidebar").checked) {
       console.log("Entered the Sidebar Action sequence");
 
@@ -107,10 +104,7 @@
       data.sidebar_action = dummy2;
 
       console.log(data.sidebar_action);
-
-      document.getElementById('page1').style.display = 'none';
-      document.getElementById('page2').style.display = 'initial';
-
+      
     }
 
     if(document.getElementById("bgscript").checked) {
@@ -153,11 +147,7 @@
       console.log(data.devtools_page);
     }
 
-
-  }, false);
-
-  document.getElementById("submit").addEventListener("click", function(){
-
+    
     var checkboxes = document.getElementsByName('check');
     var checkboxesChecked = [];
 
@@ -190,12 +180,5 @@
     element.click();
     document.body.removeChild(element);
 
-
   }, false);
 
-  document.getElementById("back").addEventListener("click", function(){
-    document.getElementById('page1').style.display = 'block';
-    document.getElementById('page2').style.display = 'none';
-  }, false);
-
-console.log("End of the Program");
