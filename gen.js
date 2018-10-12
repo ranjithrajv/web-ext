@@ -1,4 +1,4 @@
-  document.getElementById('page2').style.display = 'none';
+
 
   // Assigning default Values for the Variables
   var extname="Example", extversion="0.1", extdescription="Example Description";
@@ -6,9 +6,20 @@
   //Creation of required Objects.
   var data = new Object();
 
+  //Adding the functionality to show and hide the Deck 2
+  document.getElementById('pointer').addEventListener("click", function(){
+    if(document.getElementById('deck2').style.display == "none"){
+      document.getElementById('deck2').style.display == "block";
+      document.getElementById('pointer').src = "img/left.svg";
+    } else {
+      document.getElementById('deck2').style.display == "none";
+      document.getElementById('pointer').src = "img/right.svg";
+    }
+  }, false);
 
+  // Adding on click function for Generate File button
   document.getElementById("submit").addEventListener("click", function(){
-    
+
     var dummy = new Object();
     var dummy2 = new Object();
     var dummy3 = new Object();
@@ -17,7 +28,7 @@
     var dummy6 = new Object();
     var dummy7 = new Object();
 
-    
+
     // Assigning user entered for the Variables
     var dummy = document.getElementById('extname').value;
     if(dummy != "") {
@@ -62,7 +73,7 @@
       };
     }
 
-    
+
     if(document.getElementById("page").checked) {
         console.log("Entered the Page Action sequence");
 
@@ -78,7 +89,7 @@
 
         console.log(data.page_action);
 
-        
+
     } else if(document.getElementById("browser").checked) {
       console.log("Entered the Browser Action sequence");
 
@@ -93,7 +104,7 @@
 
       console.log(data.broser_action);
 
-      
+
     } else if(document.getElementById("sidebar").checked) {
       console.log("Entered the Sidebar Action sequence");
 
@@ -104,7 +115,7 @@
       data.sidebar_action = dummy2;
 
       console.log(data.sidebar_action);
-      
+
     }
 
     if(document.getElementById("bgscript").checked) {
@@ -147,7 +158,7 @@
       console.log(data.devtools_page);
     }
 
-    
+
     var checkboxes = document.getElementsByName('check');
     var checkboxesChecked = [];
 
@@ -181,4 +192,3 @@
     document.body.removeChild(element);
 
   }, false);
-
