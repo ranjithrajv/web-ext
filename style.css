@@ -29,11 +29,32 @@ h3 {
   text-align: center;
   color: white;
 }
+
+#wrapper{
+  float:left;
+  width: 100%;
+  display: block;
+}
+
+#deck1, #deck2 {
+  float: left;
+  width: 40%;
+}
+#deck2 {
+  /* display:none;*/
+}
+ #deck1-2 {
+   float: left;
+   margin: 30px;
+   padding-top: 4em;
+ }
+
 .btn-primary {
   color: #ffffff;
   background-color: #0060df;
 
 }
+
 #error {
   color: white;
   text-align: center;
@@ -96,15 +117,6 @@ input[type=checkbox]:checked + .checkbox:before {
 	font-size: 20px;
 }
 
-#page2 {
-  display: initial;
-  padding: 20px;
-}
-
-#page1 {
-  width: 80%;
-
-}
 
 .btn-light {
   margin: 10px;
@@ -113,4 +125,3 @@ input[type=checkbox]:checked + .checkbox:before {
 .btn-light:hover {
   background-color: #c94b4b;
 }
-
