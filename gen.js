@@ -43,7 +43,7 @@
     console.log("Description : " + extdescription);
 
     var dummy = document.getElementById('extversion').value;
-     if(dummy != NULL) {
+     if(dummy != null) {
        extversion = dummy;
     }
     console.log("Version : " + extversion);
@@ -118,14 +118,14 @@
 
     }
 
-    if(document.getElementById("bgscript").checked) {
+    if(document.getElementById("backgroundScript").checked) {
       dummy3.scripts = ["background.js"];
 
       data.background = dummy3;
       console.log(data.background);
     }
 
-    if(document.getElementById("conscript").checked) {
+    if(document.getElementById("contentScript").checked) {
 
       dummy4.matches = ["*://*.mozilla.org/*"];
       dummy4.js = ["content.js"];
@@ -179,16 +179,69 @@
     var datatext = JSON.stringify(data, null, 6);
     console.log(datatext);
 
-    var filename = "manifest.json";
+    // Uses JSZip.js and FileSaver.js
+    var extension = new JSZip();
+    var zip = extension.folder(data.name);
+    
+    // Manifest file
+    zip.file("manifest.json", datatext, {binary : true, compression : "DEFLATE"});
 
-    // Generate download with JSON content
-    var element = document.createElement('a');
-    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(datatext));
-    element.setAttribute('download', filename);
+    if(document.getElementById('backgroundScript').checked) {
+      // Background Scripts
+      var background_scripts = zip.folder("background");
+      background_scripts.file("background.html","//Insert your HTML code here", {binary : true, compression : "DEFLATE"});
+      background_scripts.file("background.js","//Insert your JS code here", {binary : true, compression : "DEFLATE"});
+    }
 
-    element.style.display = 'none';
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    if(document.getElementById('contentScript').checked) {
+      // Content Scripts
+      var content_scripts = zip.folder("content");
+      content_scripts.file("content.css","//Insert your CSS code here", {binary : true, compression : "DEFLATE"});
+      content_scripts.file("content.js","//Insert your JS code here", {binary : true, compression : "DEFLATE"});
+    }
+
+    if(document.getElementById('browser').checked) {
+      // Toolbar - Browser Actions
+      var browser_scripts = zip.folder("browser");
+      var icons = browser_scripts.folder(icons);
+      var popup = browser_scripts.folder(popup);
+      popup.file("popup.html","//Insert your HTML code here");
+      popup.file("popup.css","//Insert your CSS code here");
+      popup.file("popup.js","//Insert your JS code here");
+    }
+
+    if(document.getElementById('page').checked) {
+      // Address Bar - Page Action
+      var page_action = zip.folder("page");
+      var icons = page_action.folder(icons);
+      var popup = page_action.folder(popup);
+      popup.file("popup.html","//Insert your HTML code here", {binary : true, compression : "DEFLATE"});
+      popup.file("popup.css","//Insert your CSS code here", {binary : true, compression : "DEFLATE"});
+      popup.file("popup.js","//Insert your JS code here", {binary : true, compression : "DEFLATE"});
+    }
+
+    if(document.getElementById('sidebar').checked) {
+      // Sidebar - Sidebar Action
+      var sidebar_action = zip.folder("sidebar");
+      var icons = sidebar_action.folder(icons);
+      popup.file("sidebar.html","//Insert your HTML code here", {binary : true, compression : "DEFLATE"});
+      popup.file("sidebar.css","//Insert your CSS code here", {binary : true, compression : "DEFLATE"});
+      popup.file("sidebar.js","//Insert your JS code here", {binary : true, compression : "DEFLATE"});
+    }
+
+    if(document.getElementById('OptionsPage').checked) {
+      // Options Page
+      var options_page = zip.folder("options");
+      options_page.file("options.html","//Insert your HTML code here", {binary : true, compression : "DEFLATE"});
+      options_page.file("options.css","//Insert your CSS code here", {binary : true, compression : "DEFLATE"});
+      options_page.file("options.js","//Insert your JS code here", {binary : true, compression : "DEFLATE"});
+    }
+
+    // Create the zip
+    var promise = null;
+    filename = data.name + ".zip";
+    promise = zip.generateAsync({type : "blob"}).then(function(content) {
+      saveAs(content, filename);
+    });
 
   }, false);
